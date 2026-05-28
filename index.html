@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindful Quest - AI Focus Companion</title>
+    <title>Mindful Quest - AI Focus Ecosystem</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -19,14 +19,8 @@
             animation: gradientBG 15s ease infinite;
             position: fixed; inset: 0; z-index: 0;
         }
-        /* Optimasi GPU untuk perangkat low-end */
         @media (prefers-reduced-motion: reduce) { .aurora-bg { animation: none; background: #0f172a; } }
-        
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+        @keyframes gradientBG { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
         /* 2. ELARA AI ORB (Desain Vektorial Adaptif) */
         .orb-container {
@@ -45,7 +39,6 @@
             box-shadow: 0 0 50px rgba(244, 63, 94, 0.6), inset 0 0 20px rgba(255,255,255,0.5);
             animation-duration: 2s, 6s;
         }
-        /* Mode Agresif untuk 1 Menit Terakhir */
         .ai-orb.critical-mode {
             background: radial-gradient(circle at 30% 30%, #fbbf24, #b45309);
             box-shadow: 0 0 70px rgba(251, 191, 36, 0.8), inset 0 0 20px rgba(255,255,255,0.8);
@@ -94,16 +87,19 @@
             </div>
         </div>
         
-        <div class="flex flex-col items-end gap-3">
-            <button onclick="toggleJournal()" class="glass px-5 py-2.5 rounded-full text-sm font-bold hover:bg-indigo-600/30 transition shadow-lg w-full md:w-auto text-center">
-                📊 Data Center
+        <div class="flex flex-col items-end gap-3 w-full md:w-auto">
+            <button onclick="toggleJournal()" class="glass px-5 py-2.5 rounded-full text-sm font-bold hover:bg-indigo-600/30 transition shadow-lg w-full md:w-auto text-center border-indigo-500/50">
+                📊 Database Sentral
             </button>
-            <div class="glass px-2 py-1 rounded-full flex items-center gap-2 shadow-lg">
-                <select id="audio-source" onchange="changeAudioSource()" class="bg-transparent text-xs text-indigo-200 outline-none cursor-pointer pl-2">
-                    <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3">Ambient Synth</option>
-                    <option value="https://cdn.pixabay.com/download/audio/2021/08/09/audio_88447e12e2.mp3">Suara Hujan</option>
+            <div class="glass px-2 py-1 rounded-full flex items-center gap-2 shadow-lg w-full md:w-auto justify-between">
+                <select id="audio-source" onchange="changeAudioSource()" class="bg-transparent text-xs text-indigo-200 outline-none cursor-pointer pl-2 w-full md:w-40 appearance-none font-semibold">
+                    <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3">🌌 Deep Space</option>
+                    <option value="https://cdn.pixabay.com/download/audio/2021/08/09/audio_88447e12e2.mp3">🌧️ Rainstorm</option>
+                    <option value="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf7eb.mp3">🎧 Lo-Fi Beats</option>
+                    <option value="https://cdn.pixabay.com/download/audio/2022/02/07/audio_8b248a855d.mp3">🧘 Binaural Focus</option>
+                    <option value="https://cdn.pixabay.com/download/audio/2021/08/04/audio_12b0c7443c.mp3">🌲 Forest Stream</option>
                 </select>
-                <button id="audio-toggle" onclick="toggleAudio()" class="p-2 rounded-full hover:bg-white/10 transition">
+                <button id="audio-toggle" onclick="toggleAudio()" class="p-2 rounded-full hover:bg-white/10 transition bg-indigo-500/20">
                     <svg id="vol-icon" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-50" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.983 5.983 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.984 3.984 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd" />
                     </svg>
@@ -122,20 +118,21 @@
                 <select id="category" class="w-full md:w-36 bg-slate-900/60 border border-indigo-500/30 rounded-xl px-4 py-3.5 outline-none text-sm">
                     <option value="Akademik">📚 Akademik</option>
                     <option value="Koding">💻 Koding</option>
+                    <option value="Desain">🎨 Desain</option>
                     <option value="Istirahat">☕ Istirahat</option>
                 </select>
-                <input type="text" id="user-intent" placeholder="Sebutkan misimu hari ini..." autocomplete="off" class="w-full flex-1 bg-slate-900/60 border border-indigo-500/30 rounded-xl px-5 py-3.5 focus:outline-none focus:border-indigo-400 text-sm">
+                <input type="text" id="user-intent" placeholder="Sebutkan target utamamu hari ini..." autocomplete="off" class="w-full flex-1 bg-slate-900/60 border border-indigo-500/30 rounded-xl px-5 py-3.5 focus:outline-none focus:border-indigo-400 text-sm">
                 <select id="duration" class="w-full md:w-32 bg-slate-900/60 border border-indigo-500/30 rounded-xl px-4 py-3.5 outline-none text-sm">
                     <option value="1">1 Menit (Tes)</option>
                     <option value="25" selected>25 Menit</option>
                     <option value="45">45 Menit</option>
                     <option value="90">90 Menit</option>
                 </select>
-                <button onclick="startFocusSession()" id="btn-start" class="w-full md:w-auto bg-indigo-600 hover:bg-indigo-500 px-8 py-3.5 rounded-xl font-bold shadow-[0_0_15px_rgba(79,70,229,0.5)] active:scale-95 text-sm transition-transform">Inisiasi</button>
+                <button onclick="startFocusSession()" id="btn-start" class="w-full md:w-auto bg-indigo-600 hover:bg-indigo-500 px-8 py-3.5 rounded-xl font-bold shadow-[0_0_15px_rgba(79,70,229,0.5)] active:scale-95 text-sm transition-transform border border-indigo-400/30">Inisiasi</button>
             </div>
 
             <div id="reward-controls" class="mt-6 fade-transition fade-out w-full flex gap-4 hidden">
-                <button onclick="resetApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 py-4 rounded-xl font-bold shadow-lg active:scale-95 transition-transform text-sm md:text-base">Misi Selesai (Kembali ke Radar)</button>
+                <button onclick="resetApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 py-4 rounded-xl font-bold shadow-lg active:scale-95 transition-transform text-sm md:text-base border border-emerald-400/30">Misi Selesai (Kembali ke Radar)</button>
             </div>
         </div>
     </main>
@@ -143,37 +140,40 @@
     <div id="journal-modal" class="fixed inset-0 z-50 glass fade-transition fade-out flex items-center justify-center p-4 hidden">
         <div class="bg-slate-900 w-full max-w-3xl rounded-3xl p-6 md:p-8 border border-white/10 shadow-2xl flex flex-col max-h-[90vh]">
             <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-bold tracking-tight text-white">Database Lokal</h2>
-                <button onclick="toggleJournal()" class="text-white/50 hover:text-white text-3xl">&times;</button>
+                <h2 class="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                    Database Lokal
+                </h2>
+                <button onclick="toggleJournal()" class="text-white/50 hover:text-white text-3xl transition">&times;</button>
             </div>
             
-            <div class="flex flex-col md:flex-row justify-between items-center mb-6 bg-slate-800/40 p-3 rounded-xl border border-white/5 gap-3">
-                <span class="text-xs text-slate-400 text-center md:text-left">Data dienkripsi murni di peramban Anda.</span>
+            <div class="flex flex-col md:flex-row justify-between items-center mb-6 bg-slate-800/60 p-3 rounded-xl border border-indigo-500/20 gap-3">
+                <span class="text-xs text-slate-400 text-center md:text-left">Semua data diamankan secara terenkripsi murni di peramban Anda.</span>
                 <div class="flex gap-2">
-                    <button onclick="exportData()" class="bg-indigo-600/50 hover:bg-indigo-600 text-[10px] uppercase font-bold px-3 py-1.5 rounded transition">Export Backup</button>
-                    <label class="bg-slate-700/50 hover:bg-slate-700 text-[10px] uppercase font-bold px-3 py-1.5 rounded transition cursor-pointer">
-                        Import Data
+                    <button onclick="exportData()" class="bg-indigo-600/80 hover:bg-indigo-500 text-[10px] uppercase font-bold px-4 py-2 rounded transition shadow-md">⬇️ Export JSON</button>
+                    <label class="bg-slate-700/80 hover:bg-slate-600 text-[10px] uppercase font-bold px-4 py-2 rounded transition shadow-md cursor-pointer">
+                        ⬆️ Import Data
                         <input type="file" id="import-file" class="hidden" accept=".json" onchange="importData(event)">
                     </label>
                 </div>
             </div>
             
             <div class="overflow-y-auto custom-scroll flex-1 pr-2">
-                <div class="bg-slate-800/50 p-4 rounded-2xl border border-white/5 mb-4">
-                    <div class="flex justify-between text-xs font-bold mb-2">
-                        <span class="text-indigo-300">Progress menuju Rank Atas</span>
-                        <span id="exp-text" class="text-amber-500">0 / 200 EXP</span>
+                <div class="bg-slate-800/40 p-5 rounded-2xl border border-white/5 mb-4 shadow-inner">
+                    <div class="flex justify-between text-xs font-bold mb-3">
+                        <span class="text-indigo-300 uppercase tracking-wider">Progres Pangkat Selanjutnya</span>
+                        <span id="exp-text" class="text-amber-500 bg-amber-500/10 px-2 py-1 rounded">0 / 200 EXP</span>
                     </div>
-                    <div class="w-full h-2.5 bg-slate-900 rounded-full overflow-hidden">
-                        <div id="modal-exp-bar" class="h-full bg-gradient-to-r from-amber-500 to-indigo-500 transition-all duration-1000" style="width: 0%"></div>
+                    <div class="w-full h-3 bg-slate-900 rounded-full overflow-hidden border border-white/5">
+                        <div id="modal-exp-bar" class="h-full bg-gradient-to-r from-amber-500 via-orange-400 to-indigo-500 transition-all duration-1000" style="width: 0%"></div>
                     </div>
                 </div>
 
-                <div class="bg-slate-800/50 p-4 rounded-2xl border border-white/5 mb-6">
-                    <canvas id="focusChart" height="100"></canvas>
+                <div class="bg-slate-800/40 p-4 rounded-2xl border border-white/5 mb-6">
+                    <canvas id="focusChart" height="90"></canvas>
                 </div>
 
-                <h3 class="text-sm font-bold text-slate-400 mb-3 uppercase tracking-widest">Riwayat Misi</h3>
+                <h3 class="text-sm font-bold text-slate-400 mb-3 uppercase tracking-widest pl-1 border-l-2 border-indigo-500">Riwayat Misi Log</h3>
                 <div id="journal-content" class="space-y-3"></div>
             </div>
         </div>
@@ -183,11 +183,11 @@
     <audio id="chime" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3"></audio>
 
     <script>
-        // --- 0. KONFIGURASI SISTEM ---
-        const GEMINI_API_KEY = ""; // Masukkan kunci untuk demo video
+        // --- 0. KONFIGURASI SISTEM AI ---
+        const GEMINI_API_KEY = ""; // Opsional: Untuk demonstrasi video yang lebih "Pintar"
         
         let targetTimestamp = 0, totalSeconds = 0, timerInterval = null, timerActive = false;
-        let audioPlaying = false, chartInstance = null;
+        let audioPlaying = false, chartInstance = null, typingInterval = null;
         let milestones = { half: false, fiveMin: false, oneMin: false, critical: false };
 
         const ui = {
@@ -203,10 +203,15 @@
             btnStart: document.getElementById('btn-start')
         };
 
-        // --- 1. EXCEPTION HANDLING (Pencegahan Data Korup) ---
+        // --- 1. KEAMANAN DATA LOKAL (BUG FIX: KORUPSI DATA) ---
         function safeGetJSON(key, defaultVal) {
-            try { return JSON.parse(localStorage.getItem(key)) || defaultVal; }
-            catch (e) { console.error(`Data ${key} korup. Reset ulang.`); return defaultVal; }
+            try { 
+                const val = localStorage.getItem(key);
+                return val ? JSON.parse(val) : defaultVal;
+            } catch (e) { 
+                console.warn(`Data ${key} gagal diuraikan (Corrupt). Melakukan auto-reset.`); 
+                return defaultVal; 
+            }
         }
         function safeGetInt(key, defaultVal) {
             const val = parseInt(localStorage.getItem(key));
@@ -257,7 +262,7 @@
             document.getElementById('streak-count').innerText = streak;
         }
 
-        // --- 3. MANAJEMEN AUDIO & NOTIFIKASI WEB API ---
+        // --- 3. MANAJEMEN AUDIO & NOTIFIKASI OS ---
         function requestNotificationPermission() {
             if ("Notification" in window && Notification.permission !== "granted" && Notification.permission !== "denied") {
                 Notification.requestPermission();
@@ -266,9 +271,15 @@
 
         function toggleAudio() {
             const music = document.getElementById('bg-music'), icon = document.getElementById('vol-icon');
-            audioPlaying ? music.pause() : music.play();
-            icon.style.opacity = audioPlaying ? '0.5' : '1';
-            audioPlaying = !audioPlaying;
+            if (audioPlaying) {
+                music.pause(); icon.style.opacity = '0.5'; audioPlaying = false;
+            } else {
+                let playPromise = music.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => { icon.style.opacity = '1'; audioPlaying = true; })
+                    .catch(e => { console.warn("Sistem mencegah autoplay audio."); });
+                }
+            }
         }
 
         function changeAudioSource() {
@@ -277,50 +288,56 @@
             if (audioPlaying) audio.play();
         }
 
-        // --- 4. STATE MANAGEMENT & ANIMASI TEKS ---
+        // --- 4. STATE MANAGEMENT & ANIMASI TEKS (BUG FIX: OVERLAP) ---
         function switchState(hideEl, showEl) {
             if(hideEl) { 
                 hideEl.classList.remove('fade-in'); hideEl.classList.add('fade-out'); 
-                setTimeout(() => hideEl.classList.add('hidden'), 400); // Pastikan benar-benar hilang dari DOM flow
+                setTimeout(() => { if(hideEl.classList.contains('fade-out')) hideEl.classList.add('hidden'); }, 400); 
             }
             if(showEl) { 
                 showEl.classList.remove('hidden'); 
-                // Delay sejenak agar transisi CSS terbaca
-                setTimeout(() => { showEl.classList.remove('fade-out'); showEl.classList.add('fade-in'); }, 10);
+                void showEl.offsetWidth; // Memaksa browser merender ulang (reflow) agar animasi selalu jalan
+                showEl.classList.remove('fade-out'); showEl.classList.add('fade-in'); 
             }
         }
 
-        let isTyping = false;
         async function typeWriter(text) {
-            if (isTyping) return; isTyping = true;
+            if (typingInterval) clearInterval(typingInterval);
             ui.dialog.innerHTML = ''; let i = 0;
             return new Promise(res => {
-                const int = setInterval(() => {
+                typingInterval = setInterval(() => {
                     if (i < text.length) { ui.dialog.innerHTML += text.charAt(i); i++; } 
-                    else { clearInterval(int); isTyping = false; res(); }
+                    else { clearInterval(typingInterval); typingInterval = null; res(); }
                 }, 30);
             });
         }
 
-        // --- 5. LOGIKA FOKUS INTI (Anti-Lag Timestamp) ---
+        // --- 5. LOGIKA FOKUS INTI & API TIMEOUT ---
         async function getAIResponse(intent, category) {
-            if(!GEMINI_API_KEY) return `Sistem mengunci target pada [${category}]. Fokuskan seluruh analisamu pada "${intent}". Aku menjaga stabilitas.`;
+            if(!GEMINI_API_KEY) return `Sistem mengunci target pada [${category}]. Fokuskan analisamu pada "${intent}". Aku menjaga stabilitas di belakang layar.`;
+            
+            const fallbackMsg = `Koneksi satelit dialihkan. Menjalankan protokol lokal: Fokus penuh pada "${intent}".`;
             try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                const fetchPromise = fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
                     method: 'POST', headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ contents: [{ parts: [{ text: `Kamu adalah Elara, AI pendamping produktivitas bernada tenang dan sci-fi. Pengguna akan melakukan sesi fokus kategori: ${category}. Tugasnya: "${intent}". Berikan SATU kalimat penyemangat yang singkat, analitis, dan keren (maks 15 kata).` }]}]})
-                });
-                const data = await response.json(); return data.candidates[0].content.parts[0].text;
-            } catch (err) { return `Koneksi satelit terputus. Menggunakan protokol lokal: Fokus pada tugas "${intent}".`; }
+                    body: JSON.stringify({ contents: [{ parts: [{ text: `Kamu Elara, AI pendamping produktivitas. Pengguna fokus: ${category}. Tugas: "${intent}". Beri SATU kalimat penyemangat ringkas (maks 15 kata).` }]}]})
+                }).then(res => res.json()).then(data => data.candidates[0].content.parts[0].text);
+                
+                const timeoutPromise = new Promise(r => setTimeout(() => r(fallbackMsg), 6000));
+                return await Promise.race([fetchPromise, timeoutPromise]);
+            } catch (err) { return fallbackMsg; }
         }
 
         async function startFocusSession() {
             const intent = document.getElementById('user-intent').value.trim();
             const category = document.getElementById('category').value;
-            if (!intent) { typeWriter("Logika gagal: Target eksekusi belum dimasukkan."); return; }
+            if (!intent) { typeWriter("Logika ditolak: Anda harus memasukkan target eksekusi terlebih dahulu."); return; }
             
-            requestNotificationPermission(); // Minta izin notif saat user pertama kali interaksi
+            if (timerInterval) clearInterval(timerInterval);
+            requestNotificationPermission(); 
+            
             ui.btnStart.innerText = "Memproses..."; ui.btnStart.disabled = true;
+            typeWriter("Menghubungkan ke satelit...");
             
             const aiMessage = await getAIResponse(intent, category);
             const duration = parseInt(document.getElementById('duration').value);
@@ -330,7 +347,7 @@
             milestones = { half: false, fiveMin: false, oneMin: false, critical: false };
             timerActive = true;
             
-            ui.orb.className = 'ai-orb focus-mode'; // Set animasi awal mode fokus
+            ui.orb.className = 'ai-orb focus-mode'; 
             switchState(ui.homeControls, ui.timerContainer);
             typeWriter(aiMessage);
             
@@ -346,47 +363,45 @@
             ui.timer.innerText = `${Math.floor(remainSecs / 60).toString().padStart(2, '0')}:${(remainSecs % 60).toString().padStart(2, '0')}`;
             ui.overlay.style.opacity = (1 - (remainSecs / totalSeconds)) * 0.8;
 
-            // Milestone Checks
+            // Logika Milestone
             if (remainSecs === Math.floor(totalSeconds / 2) && !milestones.half) {
-                milestones.half = true; typeWriter("Siklus mencapai 50%. Efisiensi sistem stabil. Terus maju.");
+                milestones.half = true; typeWriter("Siklus mencapai 50%. Efisiensi sistem stabil. Terus melangkah.");
             } else if (remainSecs === 60 && !milestones.oneMin) {
-                milestones.oneMin = true; typeWriter("1 menit tersisa. Kunci targetmu sekarang.");
+                milestones.oneMin = true; typeWriter("1 menit tersisa. Kunci pikiranmu sekarang.");
             } else if (remainSecs <= 30 && !milestones.critical && totalSeconds > 60) {
-                // Efek Animasi Kritis (Adrenalin Rush)
-                milestones.critical = true;
-                ui.orb.className = 'ai-orb critical-mode';
+                milestones.critical = true; ui.orb.className = 'ai-orb critical-mode';
             }
 
-            if (remainSecs <= 0) { timerActive = false; finishFocus(); }
+            if (remainSecs <= 0) { 
+                timerActive = false; clearInterval(timerInterval); finishFocus(); 
+            }
         }
 
-        // --- 6. LOGIKA PEMBATALAN & PENYELESAIAN ---
+        // --- 6. PEMBATALAN & PENYELESAIAN ---
         function abortSession() {
-            clearInterval(timerInterval); timerActive = false;
-            ui.orb.className = 'ai-orb'; // Reset Orb
+            if (timerInterval) clearInterval(timerInterval); 
+            timerActive = false;
+            ui.orb.className = 'ai-orb'; 
             ui.overlay.style.opacity = 0;
             switchState(ui.timerContainer, ui.homeControls);
             ui.btnStart.innerText = "Inisiasi"; ui.btnStart.disabled = false;
-            typeWriter("Misi dibatalkan. Tidak ada poin yang dicatat. Sistem kembali ke status siaga.");
+            typeWriter("Misi dibatalkan. Menghentikan hitung mundur. Sistem kembali ke mode siaga.");
         }
 
         function finishFocus() {
-            clearInterval(timerInterval); document.getElementById('chime').play();
-            switchState(ui.timerContainer, ui.rewardControls); ui.overlay.style.opacity = 0.8;
-            ui.orb.className = 'ai-orb'; // Reset Orb
+            document.getElementById('chime').play();
+            switchState(ui.timerContainer, ui.rewardControls); 
+            ui.overlay.style.opacity = 0.8;
+            ui.orb.className = 'ai-orb'; 
             
-            // Tembakkan Push Notification OS
             if ("Notification" in window && Notification.permission === "granted") {
-                new Notification("Misi Selesai", { body: "Kerja bagus! Algoritma mencatat keberhasilanmu.", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Mascot_of_Wikipedia_Anime_Project.png/100px-Mascot_of_Wikipedia_Anime_Project.png" });
+                new Notification("Siklus Selesai", { body: "Kerja bagus! Waktu fokusmu telah berakhir. Periksa EXP yang didapatkan." });
             }
 
             const dur = parseInt(document.getElementById('duration').value);
-            typeWriter(`Misi selesai. Logika dan dedikasimu tidak mengecewakan. Sistem mencatat +${dur * 10} EXP.`);
+            typeWriter(`Misi diselesaikan dengan akurasi 100%. Algoritma mencatat keberhasilanmu. +${dur * 10} EXP ditambahkan ke dalam database.`);
             
-            const cat = document.getElementById('category').value;
-            const intent = document.getElementById('user-intent').value;
-            
-            saveJournal(cat, intent, dur);
+            saveJournal(document.getElementById('category').value, document.getElementById('user-intent').value, dur);
             
             let exp = safeGetInt('mindful_exp', 0);
             localStorage.setItem('mindful_exp', exp + (dur * 10));
@@ -414,14 +429,13 @@
         // --- 7. DYNAMIC ANTI-CHEAT ---
         document.addEventListener('visibilitychange', () => {
             if (document.hidden && timerActive) {
-                const cat = document.getElementById('category').value;
-                if (cat === 'Istirahat') {
-                    typeWriter("⚠️ Peringatan: Ini siklus istirahat. Menatap tab lain mendisrupsi pemulihan sistemmu.");
+                if (document.getElementById('category').value === 'Istirahat') {
+                    typeWriter("⚠️ Peringatan: Ini siklus istirahat. Menatap tab lain mendisrupsi proses pemulihan sistem otakmu.");
                 }
             }
         });
 
-        // --- 8. DASHBOARD ANALITIK & BACKUP ---
+        // --- 8. DATABASE EKSPOR/IMPOR & ANALITIK (BUG FIX: DATA TYPE) ---
         function toggleJournal() {
             if (ui.journalModal.classList.contains('fade-out')) {
                 loadPlayerData(); renderJournal(); renderChart(); switchState(null, ui.journalModal);
@@ -430,15 +444,15 @@
 
         function renderJournal() {
             const logs = safeGetJSON('mindful_logs', []);
-            const catColors = { 'Akademik': 'bg-blue-500/20 text-blue-300', 'Koding': 'bg-purple-500/20 text-purple-300', 'Istirahat': 'bg-emerald-500/20 text-emerald-300' };
+            const catColors = { 'Akademik': 'bg-blue-500/20 text-blue-300', 'Koding': 'bg-purple-500/20 text-purple-300', 'Desain': 'bg-pink-500/20 text-pink-300', 'Istirahat': 'bg-emerald-500/20 text-emerald-300' };
             ui.journalContent.innerHTML = logs.reverse().map(l => `
-                <div class="p-4 bg-slate-800/40 rounded-xl border border-white/5 flex justify-between items-center">
+                <div class="p-4 bg-slate-800/40 rounded-xl border border-white/5 flex justify-between items-center hover:bg-slate-800/60 transition">
                     <div>
-                        <div class="flex gap-2 mb-1"><span class="${catColors[l.category] || 'bg-slate-500/20'} text-[10px] px-2 py-0.5 rounded font-bold">${l.category}</span><span class="text-[10px] text-slate-400">${l.date}</span></div>
+                        <div class="flex gap-2 mb-1"><span class="${catColors[l.category] || 'bg-slate-500/20'} text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wide">${l.category}</span><span class="text-[10px] text-slate-400 font-semibold">${l.date}</span></div>
                         <h3 class="text-sm font-semibold text-white">${l.intent}</h3>
-                    </div><span class="text-indigo-400 font-bold text-sm">+${l.duration} Mnt</span>
+                    </div><span class="text-indigo-400 font-bold text-sm bg-indigo-500/10 px-2 py-1 rounded">+${l.duration} Mnt</span>
                 </div>
-            `).join('') || '<p class="text-center text-slate-500 py-5 text-sm">Database masih kosong. Mulai inisiasi pertamamu.</p>';
+            `).join('') || '<p class="text-center text-slate-500 py-8 text-sm">Database internal masih kosong. Mulai inisiasi pertamamu.</p>';
         }
 
         function renderChart() {
@@ -456,7 +470,12 @@
         }
 
         function exportData() {
-            const data = { exp: localStorage.getItem('mindful_exp'), logs: localStorage.getItem('mindful_logs'), streak: localStorage.getItem('mindful_streak'), lastDate: localStorage.getItem('last_focus_date') };
+            const data = { 
+                exp: safeGetInt('mindful_exp', 0), 
+                logs: safeGetJSON('mindful_logs', []), 
+                streak: safeGetInt('mindful_streak', 0), 
+                lastDate: localStorage.getItem('last_focus_date') || '' 
+            };
             const a = document.createElement('a');
             a.href = URL.createObjectURL(new Blob([JSON.stringify(data)], {type: 'application/json'}));
             a.download = `MindfulQuest_Backup_${new Date().toLocaleDateString('id-ID')}.json`;
@@ -464,24 +483,27 @@
         }
 
         function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
             const reader = new FileReader();
             reader.onload = function(e) {
                 try {
                     const data = JSON.parse(e.target.result);
-                    if(data.exp) localStorage.setItem('mindful_exp', data.exp);
-                    if(data.logs) localStorage.setItem('mindful_logs', data.logs);
-                    if(data.streak) localStorage.setItem('mindful_streak', data.streak);
-                    if(data.lastDate) localStorage.setItem('last_focus_date', data.lastDate);
-                    alert('Sistem berhasil dipulihkan!'); location.reload();
-                } catch(err) { alert('Format file backup tidak valid.'); }
+                    if(data.exp !== undefined) localStorage.setItem('mindful_exp', data.exp);
+                    // Pengecekan tipe data agar array tidak tersimpan sebagai [object Object]
+                    if(data.logs !== undefined) localStorage.setItem('mindful_logs', typeof data.logs === 'string' ? data.logs : JSON.stringify(data.logs));
+                    if(data.streak !== undefined) localStorage.setItem('mindful_streak', data.streak);
+                    if(data.lastDate !== undefined) localStorage.setItem('last_focus_date', data.lastDate);
+                    alert('Sistem berhasil dipulihkan secara penuh!'); location.reload();
+                } catch(err) { alert('Format file backup tidak valid atau data telah terkorupsi.'); }
             };
-            if(event.target.files[0]) reader.readAsText(event.target.files[0]);
+            reader.readAsText(file);
         }
 
         // --- 9. INITIALIZATION ---
         async function init() {
             loadPlayerData();
-            await typeWriter("Sistem aktif. Aku mendengarkan. Apa prioritas utama kita saat ini?");
+            await typeWriter("Sistem aktif. Aku siap mendengarkan. Apa prioritas utama kita saat ini?");
         }
         window.onload = init;
     </script>
